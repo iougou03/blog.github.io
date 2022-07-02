@@ -1,0 +1,23 @@
+---
+title: Blog
+style: /assets/css/blog.css
+permalink: blog.html
+---
+
+<main>
+    <h1>Blogs</h1>
+
+    <ul>
+        {% for post in site.posts %}
+        <li>
+            <h2>
+                <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+            </h2>
+            <p>
+                {{ post.excerpt }}
+                {{ site.url }}{{ site.baseurl }}{{ post.url }}
+            </p>
+        </li>
+        {% endfor %}
+    </ul>
+</main>
