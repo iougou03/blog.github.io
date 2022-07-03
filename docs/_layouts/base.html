@@ -4,16 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if page.style %}
-    <link rel="stylesheet" href="{{ site.url }}{{ site.baseurl }}{{ page.style }}">
-    {% endif %}
+    <!-- barba js cdn -->
+    <script src="https://unpkg.com/@barba/core"></script>
+    <!-- gsap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/main.css">
     <title>{{ page.title }}</title>
 </head>
-<body>
-    {% include navbar.html %}
+<body data-barba="wrapper">
     
-    {{ content }}
+    {% include navbar.html %}
+
+    <main data-barba="container" data-barba-namespace="home">
+        {{ content }}            
+    </main>
 
     {% include footer.html %}
+    
+    <script type="module" src="assets/js/app.js" type="module"></script>
 </body>
 </html>

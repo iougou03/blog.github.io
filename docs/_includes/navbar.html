@@ -1,4 +1,4 @@
-<nav>
+<nav data-barba-namespace="navbar">
     <svg class="favicon" width="300" height="375" viewBox="0 0 300 375" fill="none" xmlns="http://www.w3.org/2000/svg">
         <mask id="mask0_2_50" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="20" y="75" width="260" height="225">
         <path d="M150 300L279.904 75H20.0962L150 300Z" fill="#D9D9D9"/>
@@ -13,10 +13,8 @@
         {% for item in site.data.navbar %}
     
         <a 
+            id = "{{ item.id }}"
             href="{{ site.url }}{{ site.baseurl }}{{ item.link }}"
-            {% if page.url == item.link %}
-            class = "current"
-            {% endif %}
             >
             {{ item.name | upcase }}
         </a>

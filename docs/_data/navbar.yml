@@ -1,10 +1,15 @@
 - name: Home
   link: /
+  id: home
 - name: About
   link: /about.html
+  id: about
 - name: Blog
   link: /blog.html
+  id: blog
 - name: Category
   link: /category.html
+  id: category
 - name: TID
   link: /tid.html
+  id: tid
