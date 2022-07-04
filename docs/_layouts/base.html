@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@700&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <!-- barba js cdn -->
     <script src="https://unpkg.com/@barba/core"></script>
     <!-- gsap -->
@@ -16,8 +19,8 @@
     
     {% include navbar.html %}
 
-    <main data-barba="container" data-barba-namespace="home">
-        {{ content }}            
+    <main id="{{ page.title }}" data-barba="container" data-barba-namespace="home">
+        {{ content }}           
     </main>
 
     {% include footer.html %}
