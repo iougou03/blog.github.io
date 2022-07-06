@@ -59,3 +59,37 @@ main {
 		}
 	}
 }
+
+
+#About {
+	.headline {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	
+		img {
+			max-width: 160px;
+		}
+
+		.background {
+			width: 160px;
+			height: 160px;
+			background-color: #e3e3e3;
+			border-radius: 50%;
+			margin: 3rem;
+		}
+
+		.headline__text {
+			text-align: center;
+
+			* {
+				margin: 1rem 0;
+			}
+			h1 {
+				font-size: 3rem;
+			}
+		}
+	}
+}
