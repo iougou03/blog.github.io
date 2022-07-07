@@ -15,28 +15,36 @@ jobs:
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
 
-#       - name: test command
-#         run: |
-#           git diff HEAD^ HEAD > foo.txt
+      - name: test command
+        run: |
+          if [[ `git status $FILE_NAME --porcelain` ]]; then
+            echo "tid changed"
+          else
+            # git diff HEAD^ HEAD > ./assets/data/$FILE_NAME
+            echo "nothing changed"
+          fi
+        env:
+          FILE_NAME: ./assets/data/${{ steps.date.outputs.date }}-tid.txt
 
-#       - name: Commit files
-#         id: commit
-#         run: |
-#           git config --local user.email "haesol820@naver.com"
-#           git config --local user.name "iougou03"
-#           git add --all
-#           if [-z "$(git status --porcelain)"]; then
-#             echo "::set-output name=push::false"
-#           else
-#             git commit -m "Git diff file updated" -a
-#             echo "::set-output name=push::true"
-#           fi
-#         shell: bash
-#       - name: Push changes
-#         if: steps.commit.outputs.push == 'true'
-#         uses: ad-m/github-push-action@master
-#         with:
-#           github_token: ${{ secrets.MY_GITHUB_TOKEN }}
-#           branch: "gh-pages"
+      # - name: Commit files
+      #   id: commit
+      #   run: |
+      #     git config --local user.email "haesol820@naver.com"
+      #     git config --local user.name "iougou03"
+      #     git add --all
+      #     if [-z "$(git status --porcelain)"]; then
+      #       echo "::set-output name=push::false"
+      #     else
+      #       git commit -m "{{ steps.date.outputs.date }} TID updated" -a
+      #       echo "::set-output name=push::true"
+      #     fi
+      #   shell: bash
+
+      # - name: Push changes
+      #   if: steps.commit.outputs.push == 'true'
+      #   uses: ad-m/github-push-action@master
+      #   with:
+      #     github_token: ${{ secrets.MY_GITHUB_TOKEN }}
+      #     branch: "gh-pages"
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
